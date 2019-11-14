@@ -1,6 +1,7 @@
 package com.softteco;
 
 import com.softteco.text.model.Answer;
+import com.softteco.text.model.FullResponse;
 import com.softteco.text.model.Question;
 import com.softteco.text.model.Sentence;
 import com.softteco.text.repository.FullResponseRepository;
@@ -43,20 +44,19 @@ public class ShortParagraphsServiceTest {
 
     @Before
     public void before() {
-//        if (elasticsearchTemplate.indexExists(Sentence.class)) {
-//            elasticsearchTemplate.deleteIndex(Sentence.class);
-//        }
-//        elasticsearchTemplate.createIndex(Sentence.class);
-//        elasticsearchTemplate.putMapping(Sentence.class);
-//        elasticsearchTemplate.refresh(Sentence.class);
-//        loadSentences();
-//        loadResponses();
-//        if (elasticsearchTemplate.indexExists(FullResponse.class)) {
-//            elasticsearchTemplate.deleteIndex(FullResponse.class);
-//        }
-//        elasticsearchTemplate.createIndex(FullResponse.class);
-//        elasticsearchTemplate.putMapping(FullResponse.class);
-//        elasticsearchTemplate.refresh(FullResponse.class);
+        if (elasticsearchTemplate.indexExists(Sentence.class)) {
+            elasticsearchTemplate.deleteIndex(Sentence.class);
+        }
+        elasticsearchTemplate.createIndex(Sentence.class);
+        elasticsearchTemplate.putMapping(Sentence.class);
+        elasticsearchTemplate.refresh(Sentence.class);
+        loadSentences();
+        if (elasticsearchTemplate.indexExists(FullResponse.class)) {
+            elasticsearchTemplate.deleteIndex(FullResponse.class);
+        }
+        elasticsearchTemplate.createIndex(FullResponse.class);
+        elasticsearchTemplate.putMapping(FullResponse.class);
+        elasticsearchTemplate.refresh(FullResponse.class);
     }
 
     private void loadSentences() {
